@@ -1,0 +1,54 @@
+Remember how I mentioned that programmers must be very careful to follow certain rules while writing code?
+This is because of a given language's syntax. Since the computer takes information literally, all information
+(code) that we feed the robot must be written in a certain style to avoid errors.
+
+The most basic example of critical syntax in Java is the semicolon(;). Semicolons denote to the compiler
+when to stop reading a certain line or command, and move onto the next. In most cases, a simple command to
+the computer will end in a semicolon.
+-
+This is true when declaring variables,
+int Variable = 6;
+-
+Performing operations,
+Answer = 17 + Variable;
+-
+And calling functions.
+robot.MoveForwards();
+-
+More examples of proper syntax will appear obvious as you progress in programming.
+
+For now, the next important thing to talk about is basic operations. This is how the robot computes
+values, almost always involving at lease one variable. The operations in Java are pretty much exactly
+the same as typical math, with some catches.
+
+Adding together two values is performed by inserting a plus sign between the two values. This is the same with
+subtraction, but obviously with a minus sign or hyphen instead. Multiplying and dividing are the same as well,
+but by using the asterisk (*) and forward slash (/) respectively
+
+Ex:
+Answer = Variable1 + Variable2;
+Answer = Variable1 - Variable2;
+Answer = Variable1 * Variable2;
+Answer = Variable1 / Variable2;
+
+You may also change the sign of a variable by inserting a minus sign before calling the variable;
+
+Ex:
+NegativeVariable = -Variable;
+
+Other operations and operators can be comparisons, such as greater than(>), less than(<), along with
+greater than or equal to (>=), and less than or equal to (<=). Another EXTREMELY important operator in Java
+is the exclamation point(!). Typically, you can think of the exclamation point as NOT symbol. This can be
+used with boolean datatypes, and is very important when considering LOGIC STATEMENTS, which are another key
+aspect of programming.
+
+Back to the boolean and exclamation point, this can be used to flip the variable in ways such as:
+
+Ex.
+Boolean1 != Boolean1;// (You can think of this in your head as "Boolean1 is not equal to Boolean1", which will
+                        set the value of Boolean1 to the reverse of its immediate previous value.)
+
+Boolean1 =! Boolean1;// (Performs the same function as before, but its better to think of this version as
+                         saying "Boolean1 is equal to the opposite of Boolean1".)
+
+OTHER STUFF TO MENTION: comments, multiline comments, equal signs/comparisons.

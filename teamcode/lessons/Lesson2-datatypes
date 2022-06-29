@@ -1,0 +1,43 @@
+Now that we know more about the systems we use in FTC, we may begin discussing general programming
+information. Perhaps the most important function in all of programming is the VARIABLE.
+
+You probably understand what a variable is from your math classes. Essentially, a traditional
+variable is a structure which can possibly contain an infinite amount of values, depending upon
+its environment. Variables in programming work much the same way. Variables are how computers store
+information which is used to determine the outcome of a given sequence of events. However, in programming,
+not all variables work the same way. How do you tell if a variable is supposed to be a number, or a word,
+or even a single character?
+
+This is where datatypes come into play. Datatypes are exactly what they sound like: variables which
+can store a specific type of information. In Java, there are many datatypes, and you can even create
+your own! Let's explore some of the most common ones, and see some in-situ examples.
+
+One of the simpler datatypes is called an INTEGER. In Java, an integer variable is denoted by
+the keyword "int".  This type of variable can only hold information in the form of a traditional integer.
+That is to say, an integer can only hold the value of any real whole number, positive or negative, to the bounds
+ of either infinity.  So, if we wanted to create a variable for the number of inches we want the robot to move,
+ we could say "int MovementDistance = ___;".
+
+ Another thing to mention is the 'calling' of a variable. In any
+ situation, the name of a variable is treated by the robot as its assigned value. That is to say, in our previous example,
+ if you wrote "int MovementDistance = 12;", any time you reference "MovementDistance" in the program, the robot would
+ just read it as "12".
+
+ Another common number-based datatype is the DOUBLE. You can think of doubles as integers, except that you can
+ use almost any number of decimal places in the value. It would not be right to set an int's value as 2.54, however
+ you could use a double for that very application. Declaring a new double variable looks like this:
+ "double VariableName = __;". Other types of number-based datatypes exist, but they are not used as often.
+ Some examples are FLOATs and LONGs, along with a myriad of others.
+
+ So, what if you wanted to store some data that isn't in the form of a number? Maybe you wanted to compile
+ a list of names, or passwords? This is where STRINGs come along. These can store any text that you place within
+ quotation marks ('' and "" are both acceptable). They are refered to as Strings since they are really just a
+ list of another datatype, called CHARs. A char may only hold one character within quotes, whereas a String
+ uses, well, a string of chars. One would declare a String by using "String VariableName = '___';".
+
+ Finally, another primitive datatype is referred to as a BOOLEAN. A boolean is essentially a variable that
+ can only store one of two values: true or false. The applications of this are rather obvious, so we wont go
+ into much detail. A boolean is declared by the following: "boolean VariableName = (true / false);"
+
+ These are most of the meaningful datatypes you will be extensively dealing with. Next, we will go over Java
+ syntax and operations.

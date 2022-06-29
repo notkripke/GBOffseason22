@@ -1,0 +1,32 @@
+This is Lesson 1 of the Gorillabots offseason programming program. Here we will go over
+the basics of programming, and then focus that into more FTC related areas.
+
+Programming is the action of instructing a computer / processor to perform an intended task.
+This may include creating web applications, physics simulations, and commanding robots. Programming
+is dependant purely on logic and math. Computers can only take given information in a literal sense, so
+we interface with them through the use of PROGRAMMING LANGUAGES. 
+
+Languages are the connection between our brains and the computer's actions. They are a form in which we
+as humans can comprehend the messages, and the processors can compile the code to extract a meaningful
+result. However, very strict rules must be followed by the programmer to ensure a functional product.
+
+The language we use in FTC is called JAVA (not the same as Javascript). Java is widely used in every
+commercial industry on the planet, and is considered one of the easier languages to pick up. There is 
+another form of programming legal for FTC; in the form of Block / Scratch programming. However, due to
+reasons I will cover later, these are infinitely worse options than Java.
+
+Java is a class-based, object-oriented language. This means that classes in Java may be treated as 
+'objects', making their usage versatile and easy to work with. These concepts will be covered in greater
+detail later.
+ 
+ We now have a language to work with, but no way to write in or interact with it. This is where an IDE
+ comes in. An IDE stands for an Integrated Development Environment, and is the groundwork for creating 
+ things in any given language. This is where we write our code, compile it in a way the robot can understand, 
+ upload that code to the robot, and many more things that would otherwise be very difficult.
+ 
+ The IDE we use in FTC is called Android Studio. This is a platform used by developers all over the world for
+ creating Android OS applications, such as games and software. We use this because the FTC Control System is
+ built upon the android platform, and each time we push code, we effectively re-write the apps within the 
+ control system used by the robot. More about this will be covered later.
+ 
+ For now, we will go through the process of setting up Java and Android Studio on your device.
