@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -40,7 +41,7 @@ import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting
 import java.util.ArrayList;
 
 
-@TeleOp(name="Basic: Iterative OpMode", group="Iterative Opmode")
+@Autonomous(name="TestAutoIterative", group="auto")
 public class TestAutoIterative extends OpMode
 {
     public String program_stage = "start";
