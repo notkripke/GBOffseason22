@@ -67,6 +67,10 @@ public class TestTeleopIterative extends OpMode
             RobotMovement2.initForMove();
         }
 
+        if(gamepad1.x){
+            robot.isTeleopDriveAuto = false;
+        }
+
 
 
         robot.ApplyMovement();//Updates drivetrain powers
