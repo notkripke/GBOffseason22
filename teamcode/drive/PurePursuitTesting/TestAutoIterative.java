@@ -91,16 +91,21 @@ public class TestAutoIterative extends OpMode
      */
     @Override
     public void loop() {
+        //RUNS PATH FOLLOWING THROUGH PURE PURSUIT
         ArrayList<CurvePoint> path1 = new ArrayList<>();
-
         path1.add(new CurvePoint(0,0,0,0,0,0,
                 0,0));
-
         path1.add(new CurvePoint(140,30,.7, .8, 5, 6, 2,2));
-
 
         while(RobotMovement2.followCurve(path1,0,false) != true){
             //can do robot functions in here
+            //
+
+            //
+            robot.ApplyMovement();//Applies drivetrain powers
+            //
+
+
             telemetry.addLine("following path 1");
             telemetry.update();
         }

@@ -73,10 +73,10 @@ public class Speedometer {
 
     public static double scalePrediction = 1.0;
     //amount robot slips (cm) while going forwards 1 centimeter per second
-    public static double ySlipDistanceFor1CMPS = 0.14 * scalePrediction;//0.169;
-    public static double xSlipDistanceFor1CMPS = 0.153 * scalePrediction;//0.117;
+    public static double ySlipDistanceFor1CMPS = 0.14 * scalePrediction;
+    public static double xSlipDistanceFor1CMPS = 0.14 * scalePrediction;
     //radians the robot slips when going 1 radian per second
-    public static double turnSlipAmountFor1RPS = 0.09 * scalePrediction;//0.113;
+    public static double turnSlipAmountFor1RPS = 0.1 * scalePrediction;
 
 
     /** Gives the current distance (cm) the robot would slip if power is set to 0 */

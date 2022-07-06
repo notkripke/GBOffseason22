@@ -126,8 +126,7 @@ public class MyPosition {
         //myRobot.telemetry.addLine("aux wheel: " + (wheelAuxCurrent*auxScalingFactor/1000.0));
 
 
-        //if angleIncrement is > 0 we can use steven's dumb stupid and stupid well you know the point
-        //equations because he is dumb
+        //if angleIncrement is > 0
         if(Math.abs(angleIncrement) > 0){
             //gets the radius of the turn we are in
             double radiusOfMovement = (wheelRightDeltaScale+wheelLeftDeltaScale)/(2*angleIncrement);

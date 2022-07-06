@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTestin
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
 import android.os.SystemClock;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.SampleMecanumDrive;
@@ -29,11 +31,25 @@ public class Robot {
         return this.robot(hardwareMap, telemetry);
     }
 
+    public boolean isTeleopDriveAuto = false;
+
     public static double movement_x;
     public static double movement_y;
     public static double movement_turn;
 
+    public boolean teleopAutoDriveOverride = false;
+
+    public ElapsedTime autoDriveCooldown = new ElapsedTime();
+
+    public boolean autoDriveCooldownWatch = false;
+
     public double lastUpdateTime = SystemClock.uptimeMillis();
+
+    public ArrayList<CurvePoint> testTeleopPath = new ArrayList<>();
+
+    public CurvePoint testTeleopPathWaypoint1 = new CurvePoint(60,60,0.6,0.6,10,2,2);
+
+    public CurvePoint testTeleopPathWaypoint2 = new CurvePoint(50,110,1,1,10,2,2);
 
     private double fl, fr, bl, br;
 
