@@ -10,6 +10,9 @@ import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.SampleMecanumDrive
 
 import java.util.ArrayList;
 
+import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldAngle_rad;
+import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldXPosition;
+import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldYPosition;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.RobotMovement2.pointAngle;
 
 public class Robot {
@@ -31,6 +34,20 @@ public class Robot {
         return this.robot(hardwareMap, telemetry);
     }
 
+
+    public double getXPos(){
+        return worldXPosition;
+    }
+    public double getYPos(){
+        return worldYPosition;
+    }
+    public double getAngle_rad(){
+        return worldAngle_rad;
+    }
+    public double getAngle_deg(){
+        return Math.toDegrees(worldAngle_rad);
+    }
+
     public boolean isTeleopDriveAuto = false;
 
     public static double movement_x;
@@ -50,6 +67,8 @@ public class Robot {
     public CurvePoint testTeleopPathWaypoint1 = new CurvePoint(60,60,0.6,0.6,10,2,2);
 
     public CurvePoint testTeleopPathWaypoint2 = new CurvePoint(50,110,1,1,10,2,2);
+
+    public CurvePoint startOfPath = new CurvePoint(getXPos(), getYPos(), 0,0,0,0,0,0);
 
     private double fl, fr, bl, br;
 
@@ -95,10 +114,4 @@ public class Robot {
         mbr.setPower(br_power_raw);
         mfr.setPower(tr_power_raw);
     }
-
-    public CurvePoint poop = new CurvePoint(0,0,0,0,0,0,0,0);
-
-
-
 }
-

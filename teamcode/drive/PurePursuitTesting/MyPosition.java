@@ -72,13 +72,6 @@ public class MyPosition {
         return angle;
     }
 
-
-
-
-
-
-
-
     /**
      * Updates our position on the field using the change from the encoders
      */
@@ -121,9 +114,6 @@ public class MyPosition {
         double relativeY = (wheelLeftDeltaScale + wheelRightDeltaScale)/2.0;
         double relativeX = r_xDistance;
 
-        //myRobot.telemetry.addLine("left wheel: " + (wheelLeftCurrent*moveScalingFactor/1000.0));
-        //myRobot.telemetry.addLine("right wheel: " + (wheelRightCurrent*moveScalingFactor/1000.0));
-        //myRobot.telemetry.addLine("aux wheel: " + (wheelAuxCurrent*auxScalingFactor/1000.0));
 
 
         //if angleIncrement is > 0
@@ -141,10 +131,6 @@ public class MyPosition {
 
             relativeX = radiusOfMovement * (1 - Math.cos(angleIncrement)) + (radiusOfStraif * Math.sin(angleIncrement));
 
-            //myRobot.telemetry.addLine("radius of movement: " + radiusOfMovement);
-//            myRobot.telemetry.addLine("radius of straif: " + radiusOfStraif);
-            //myRobot.telemetry.addLine("relative y: " + relativeY);
-            //myRobot.telemetry.addLine("relative x: " + relativeX);
         }
 
 

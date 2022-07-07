@@ -56,13 +56,17 @@ public class TestTeleopIterative extends OpMode
         }
 
         if(robot.isTeleopDriveAuto){ // Automatic robot control
-            if(RobotMovement2.followCurve(robot.testTeleopPath, 10, false) == true){ //if target reached
+            if(RobotMovement2.followCurve(robot.testTeleopPath, Math.toRadians(90), false) == true){ //if target reached
                 robot.isTeleopDriveAuto = false;                                  //by auto control, set back to manual control
             }
         }
 
         if(gamepad1.b && robot.autoDriveCooldown.time() >= 3){ // initializes automatic controls
             robot.isTeleopDriveAuto = true;
+            robot.testTeleopPath.clear();
+            robot.testTeleopPath.add(robot.startOfPath);
+            robot.testTeleopPath.add(robot.testTeleopPathWaypoint1);
+            robot.testTeleopPath.add(robot.testTeleopPathWaypoint2);
             RobotMovement2.initCurve();
             RobotMovement2.initForMove();
         }
