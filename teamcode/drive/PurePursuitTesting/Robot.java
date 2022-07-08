@@ -49,6 +49,8 @@ public class Robot {
         return Math.toDegrees(worldAngle_rad);
     }
 
+    public static int programStage;
+
     public void updateOdometry(){
         MyPosition.giveMePositions(mfr.getCurrentPosition(), mfl.getCurrentPosition(), mbl.getCurrentPosition());
         Speedometer.update();
@@ -87,10 +89,11 @@ public class Robot {
 
     public CurvePoint testTeleopPathWaypoint2 = new CurvePoint(50,110,1,1,10,2,2);
 
-    public CurvePoint startOfPath = new CurvePoint(getXPos(), getYPos(), 0,0,0,0,0,0);
+    public CurvePoint startOfPath = new CurvePoint(getXPos(), getYPos(), 0,0,0,0,0);
 
     private double fl, fr, bl, br;
 
+    public static long currTimeMillis;
 
     public void ApplyMovement() {
         long currTime = SystemClock.uptimeMillis();
