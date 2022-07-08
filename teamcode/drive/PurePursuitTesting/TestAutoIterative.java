@@ -100,7 +100,7 @@ public class TestAutoIterative extends OpMode
         while(RobotMovement2.followCurve(path1,0,false) != true){
             //can do robot functions in here
             //
-
+            robot.updateOdometry();
             //
             robot.ApplyMovement();//Applies drivetrain powers
             //

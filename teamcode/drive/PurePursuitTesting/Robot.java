@@ -48,6 +48,11 @@ public class Robot {
         return Math.toDegrees(worldAngle_rad);
     }
 
+    public void updateOdometry(){
+        MyPosition.giveMePositions(mfr.getCurrentPosition(), mfl.getCurrentPosition(), mbl.getCurrentPosition());
+        Speedometer.update();
+    }
+
     public double start_mfl_reading = 0;
     public double start_mfr_reading = 0;
     public double start_mbr_reading = 0;

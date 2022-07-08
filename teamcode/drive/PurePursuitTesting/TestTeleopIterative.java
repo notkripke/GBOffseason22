@@ -78,7 +78,7 @@ public class TestTeleopIterative extends OpMode
         }
 
 
-
+        robot.updateOdometry();
         robot.ApplyMovement();//Updates drivetrain powers
         }
 
