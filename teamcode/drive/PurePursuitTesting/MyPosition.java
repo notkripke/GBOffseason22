@@ -5,7 +5,7 @@ public class MyPosition {
     public static Robot myRobot;
     public static double moveScalingFactor = 12.56064392;
     public static double turnScalingFactor = 35.694;
-    public static double auxScalingFactor = 12.48;//12.6148;
+    public static double auxScalingFactor = 12.48;
     public static double auxPredictionScalingFactor = 0.92;
 
 
@@ -14,6 +14,7 @@ public class MyPosition {
     public static double wheelAuxLast = 0.0;
 
     public static double worldXPosition = 0.0;
+
     public static double worldYPosition = 0.0;
     public static double worldAngle_rad = 0.0;
 

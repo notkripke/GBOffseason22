@@ -48,6 +48,10 @@ public class Robot {
         return Math.toDegrees(worldAngle_rad);
     }
 
+    public double start_mfl_reading = 0;
+    public double start_mfr_reading = 0;
+    public double start_mbr_reading = 0;
+
     public boolean isTeleopDriveAuto = false;
 
     public static double movement_x;

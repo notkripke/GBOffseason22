@@ -41,6 +41,8 @@ public class TestTeleopIterative extends OpMode
     @Override
     public void start() {
     robot.isTeleopDriveAuto = false;
+    MyPosition.initialize(robot.mfr.getCurrentPosition(), robot.mfl.getCurrentPosition(), //initialize drivetrain tracker
+                                                robot.mbl.getCurrentPosition(), this.robot);
     }
 
     /*
