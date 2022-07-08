@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTestin
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,10 @@ public class MoveScalingFactorTuner extends OpMode
     public void init() {
 
         MyPosition.setPosition(200,200,Math.toRadians(90)); //starting pos estimate
-
+        robot.mfl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        robot.mfr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        robot.mbl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        robot.mbr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
 
     /*
@@ -67,6 +71,7 @@ public class MoveScalingFactorTuner extends OpMode
     telemetry.addData("turn version thingy: ", (robot.mfl.getCurrentPosition() - robot.start_mfl_reading)
                                                             -(robot.mfr.getCurrentPosition() - robot.start_mfr_reading));
 
+    robot.giveSpeedAndPositionTelemetry();
     telemetry.update();
 
     }

@@ -10,6 +10,7 @@ import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.SampleMecanumDrive
 
 import java.util.ArrayList;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldAngle_rad;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldXPosition;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldYPosition;
@@ -51,6 +52,15 @@ public class Robot {
     public void updateOdometry(){
         MyPosition.giveMePositions(mfr.getCurrentPosition(), mfl.getCurrentPosition(), mbl.getCurrentPosition());
         Speedometer.update();
+    }
+
+    public void giveSpeedAndPositionTelemetry(){
+        telemetry.addData("WorldXPosition: ", getXPos());
+        telemetry.addData("WorldYPosition: ", getYPos());
+        telemetry.addData("WorldRPosition (degrees): ", getAngle_deg());
+        telemetry.addData("Speed X: ", Speedometer.getSpeedX());
+        telemetry.addData("Speed Y: ", Speedometer.getSpeedY());
+        telemetry.addData("Speed R: (degrees / sec)", Speedometer.getDegPerSecond());
     }
 
     public double start_mfl_reading = 0;
