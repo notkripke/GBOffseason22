@@ -71,6 +71,7 @@ public class MoveScalingFactorTuner extends OpMode
     telemetry.addData("turn version thingy: ", (robot.mfl.getCurrentPosition() - robot.start_mfl_reading)
                                                             -(robot.mfr.getCurrentPosition() - robot.start_mfr_reading));
 
+    robot.updateOdometry();
     robot.giveSpeedAndPositionTelemetry();
     telemetry.update();
 
