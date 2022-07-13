@@ -154,8 +154,6 @@ public class MyPosition {
 
 
         //save how far we traveled in the y dimension this update for anyone that needs it
-        //currently the absolute control of the collector radius uses it to compensate for
-        //robot movement
         currentTravelYDistance = relativeY;
     }
 
