@@ -24,9 +24,7 @@ public class RobotMovement2 {
     public enum profileStates{
         gunningIt,
         slipping,
-        fineAdjustment,
-
-        memes;
+        fineAdjustment;
 
         private static profileStates[] vals = values();
         public profileStates next(){

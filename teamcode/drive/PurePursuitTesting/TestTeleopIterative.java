@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import java.util.ArrayList;
 
 
-@TeleOp(name="TestAutoIterative", group="teleop")
+@TeleOp(name="TestTeleopIterative", group="teleop")
 public class TestTeleopIterative extends OpMode
 {
     public String program_stage = "start";

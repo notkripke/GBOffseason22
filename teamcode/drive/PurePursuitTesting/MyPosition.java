@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting;
 
+import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.IMU;
+
 public class MyPosition {
 
     public static Robot myRobot;
@@ -13,6 +15,8 @@ public class MyPosition {
     public static double wheelRightLast = 0.0;
     public static double wheelAuxLast = 0.0;
 
+    public static double lastAngle = 0.0;
+
     public static double worldXPosition = 0.0;
 
     public static double worldYPosition = 0.0;
@@ -25,6 +29,7 @@ public class MyPosition {
     public static double currPos_l = 0;
     public static double currPos_r = 0;
     public static double currPos_a = 0;
+    public static double currPos_rg = 0;
 
 
 
@@ -119,6 +124,88 @@ public class MyPosition {
 
         //if angleIncrement is > 0
         if(Math.abs(angleIncrement) > 0){
+            //gets the radius of the turn we are in
+            double radiusOfMovement = (wheelRightDeltaScale+wheelLeftDeltaScale)/(2*angleIncrement);
+            //get the radius of our straifing circle
+            double radiusOfStraif = r_xDistance/angleIncrement;
+
+
+
+
+
+            relativeY = (radiusOfMovement * Math.sin(angleIncrement)) - (radiusOfStraif * (1 - Math.cos(angleIncrement)));
+
+            relativeX = radiusOfMovement * (1 - Math.cos(angleIncrement)) + (radiusOfStraif * Math.sin(angleIncrement));
+
+        }
+
+
+
+        worldXPosition += (Math.cos(worldAngleLast) * relativeY) + (Math.sin(worldAngleLast) *
+                relativeX);
+        worldYPosition += (Math.sin(worldAngleLast) * relativeY) - (Math.cos(worldAngleLast) *
+                relativeX);
+
+
+        Speedometer.yDistTraveled += relativeY;
+        Speedometer.xDistTraveled += r_xDistance;
+
+
+
+        //save the last positions for later
+        wheelLeftLast = wheelLeftCurrent;
+        wheelRightLast = wheelRightCurrent;
+        wheelAuxLast = wheelAuxCurrent;
+
+
+        //save how far we traveled in the y dimension this update for anyone that needs it
+        currentTravelYDistance = relativeY;
+    }
+
+    public static void PositioningCalculationsNew(){
+        double wheelLeftCurrent = -currPos_l;
+        double wheelRightCurrent= currPos_r;
+        double wheelAuxCurrent = currPos_a;
+
+        //compute how much the wheel data has changed
+        double wheelLeftDelta = wheelLeftCurrent - wheelLeftLast;
+        double wheelRightDelta = wheelRightCurrent - wheelRightLast;
+        double wheelAuxDelta = wheelAuxCurrent - wheelAuxLast;
+
+
+        //get the real distance traveled using the movement scaling factors
+        double wheelLeftDeltaScale = wheelLeftDelta*moveScalingFactor/1000.0;
+        double wheelRightDeltaScale = wheelRightDelta*moveScalingFactor/1000.0;
+        double wheelAuxDeltaScale = wheelAuxDelta*auxScalingFactor/1000.00;
+
+        //get how much our angle has changed
+
+        //myRobot.telemetry.addLine("Angle increment is " +
+        //      (angleIncrement > 0 ? "POSITIVE" : "NEGATIVE"));
+
+
+        //but use absolute for our actual angle
+        double wheelRightTotal = currPos_r-wheelRightInitialReading;
+        double wheelLeftTotal = -(currPos_l-wheelLeftInitialReading);
+
+        double worldAngleLast = worldAngle_rad;
+        worldAngle_rad = Math.toRadians(IMU.getAngle());
+        double angleIncrement = ((worldAngle_rad - worldAngleLast) / (2*Math.PI))*myRobot.robot_width;
+
+        //get the predicted amount the straif will go
+        double tracker_a_prediction = Math.toDegrees(angleIncrement)*(auxPredictionScalingFactor/10.0);
+        //now subtract that from the actual
+        double r_xDistance = wheelAuxDeltaScale-tracker_a_prediction;
+
+
+        //relativeY will by defa
+        double relativeY = (wheelLeftDeltaScale + wheelRightDeltaScale)/2.0;
+        double relativeX = r_xDistance;
+
+
+
+        //if angleIncrement is > 0
+        if(Math.abs(angleIncrement) != 0){
             //gets the radius of the turn we are in
             double radiusOfMovement = (wheelRightDeltaScale+wheelLeftDeltaScale)/(2*angleIncrement);
             //get the radius of our straifing circle

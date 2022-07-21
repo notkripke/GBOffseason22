@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import java.util.ArrayList;
 
 
-@TeleOp(name="TestAutoIterative", group="teleop")
+@TeleOp(name="scale idiot", group="teleop")
 public class MoveScalingFactorTuner extends OpMode
 
     /* This program is to find the optimal values for the ScalingFactors in MyPosition. The factors

@@ -1,12 +1,12 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import android.os.SystemClock;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.SampleMecanumDrive;
 
 import java.util.ArrayList;
 
@@ -16,9 +16,18 @@ import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuit
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldYPosition;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.RobotMovement2.pointAngle;
 
-public class Robot {
+public class Robot extends OpMode {
 
     public DcMotor mfl, mfr, mbl, mbr;
+
+    public void init(){
+
+
+    }
+
+    public void loop(){
+
+    }
 
     public Robot robot(HardwareMap hardwareMap, Telemetry telemetry){
         mfl = hardwareMap.dcMotor.get("mfl");
@@ -94,6 +103,8 @@ public class Robot {
     private double fl, fr, bl, br;
 
     public static long currTimeMillis;
+
+    public double robot_width = 20.32;
 
     public void ApplyMovement() {
         long currTime = SystemClock.uptimeMillis();
