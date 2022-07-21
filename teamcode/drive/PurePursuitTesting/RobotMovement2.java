@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.opencv.core.Point;
 import java.util.ArrayList;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.*;
+import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.Robot;
 
 public class RobotMovement2 {
 
