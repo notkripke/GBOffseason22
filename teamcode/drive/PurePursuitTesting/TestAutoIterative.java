@@ -46,7 +46,7 @@ public class TestAutoIterative extends OpMode
 {
     public String program_stage = "start";
 
-    Robot robot = new Robot();
+    Robot robot = new Robot(hardwareMap, telemetry);
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -100,7 +100,7 @@ public class TestAutoIterative extends OpMode
         while(RobotMovement2.followCurve(path1,0,false) != true){
             //can do robot functions in here
             //
-            robot.updateOdometry();
+            //robot.updateOdometry();
             //
             robot.ApplyMovement();//Applies drivetrain powers
             //

@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 
 
 @TeleOp(name="scale idiot", group="teleop")
+@Disabled
 public class MoveScalingFactorTuner extends OpMode
 
     /* This program is to find the optimal values for the ScalingFactors in MyPosition. The factors
@@ -27,7 +29,7 @@ public class MoveScalingFactorTuner extends OpMode
 
 {
 
-    Robot robot = new Robot();
+    Robot robot = new Robot(hardwareMap, telemetry);
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -71,8 +73,8 @@ public class MoveScalingFactorTuner extends OpMode
     telemetry.addData("turn version thingy: ", (robot.mfl.getCurrentPosition() - robot.start_mfl_reading)
                                                             -(robot.mfr.getCurrentPosition() - robot.start_mfr_reading));
 
-    robot.updateOdometry();
-    robot.giveSpeedAndPositionTelemetry();
+    //robot.updateOdometry();
+    //robot.giveSpeedAndPositionTelemetry();
     telemetry.update();
 
     }

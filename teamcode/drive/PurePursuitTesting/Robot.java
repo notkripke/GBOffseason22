@@ -10,26 +10,15 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 import java.util.ArrayList;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldAngle_rad;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldXPosition;
 import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.MyPosition.worldYPosition;
-import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.RobotMovement2.pointAngle;
 
-public class Robot extends OpMode {
+public class Robot{
 
     public DcMotor mfl, mfr, mbl, mbr;
 
-    public void init(){
-
-
-    }
-
-    public void loop(){
-
-    }
-
-    public Robot robot(HardwareMap hardwareMap, Telemetry telemetry){
+    public Robot(HardwareMap hardwareMap, Telemetry telemetry){
         mfl = hardwareMap.dcMotor.get("mfl");
         mfr = hardwareMap.dcMotor.get("mfr");
         mbl = hardwareMap.dcMotor.get("mbl");
@@ -39,9 +28,6 @@ public class Robot extends OpMode {
         mfl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         mbr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         mbl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-        int retur = 0;
-        return this.robot(hardwareMap, telemetry);
     }
 
 
@@ -60,7 +46,7 @@ public class Robot extends OpMode {
 
     public static int programStage;
 
-    public void updateOdometry(){
+   /* public void updateOdometry(){
         MyPosition.giveMePositions(mfr.getCurrentPosition(), mfl.getCurrentPosition(), mbl.getCurrentPosition());
         Speedometer.update();
     }
@@ -72,7 +58,7 @@ public class Robot extends OpMode {
         telemetry.addData("Speed X: ", Speedometer.getSpeedX());
         telemetry.addData("Speed Y: ", Speedometer.getSpeedY());
         telemetry.addData("Speed R: (degrees / sec)", Speedometer.getDegPerSecond());
-    }
+    }*/
 
     public double start_mfl_reading = 0;
     public double start_mfr_reading = 0;
@@ -100,7 +86,7 @@ public class Robot extends OpMode {
 
     public CurvePoint startOfPath = new CurvePoint(getXPos(), getYPos(), 0,0,0,0,0);
 
-    private double fl, fr, bl, br;
+    public double fl, fr, bl, br;
 
     public static long currTimeMillis;
 
@@ -115,10 +101,10 @@ public class Robot extends OpMode {
 
 
 
-        double tl_power_raw = movement_y-movement_turn+movement_x*1.5;
-        double bl_power_raw = movement_y-movement_turn- movement_x*1.5;
-        double br_power_raw = -movement_y-movement_turn-movement_x*1.5;
-        double tr_power_raw = -movement_y-movement_turn+movement_x*1.5;
+        double tl_power_raw = movement_y+movement_turn-movement_x*1.5;
+        double bl_power_raw = -movement_y+movement_turn+ movement_x*1.5;
+        double br_power_raw = movement_y+movement_turn+movement_x*1.5;
+        double tr_power_raw = -movement_y+movement_turn-movement_x*1.5;
 
 
 

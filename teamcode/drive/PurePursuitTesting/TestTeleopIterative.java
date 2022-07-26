@@ -11,7 +11,9 @@ public class TestTeleopIterative extends OpMode
 {
     public String program_stage = "start";
 
-    Robot robot = new Robot();
+    Robot robot = new Robot(hardwareMap, telemetry);
+    MyPosition pos = new MyPosition();
+    Speedometer sp = new Speedometer();
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -77,9 +79,9 @@ public class TestTeleopIterative extends OpMode
             robot.isTeleopDriveAuto = false;
         }
 
-        robot.giveSpeedAndPositionTelemetry();
+        //robot.giveSpeedAndPositionTelemetry();
         telemetry.update();
-        robot.updateOdometry();
+        //robot.updateOdometry();
         robot.ApplyMovement();//Updates drivetrain powers
         }
 

@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTestin
 import android.os.SystemClock;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
@@ -21,7 +22,7 @@ import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuit
  * Measure Slip:
  * Takes measurments for how far the robot slips given different speeds.
  */
-
+@Disabled
 @Autonomous(name = "SlipCalibrator", group = "auto")
 public class SlipCalibrator extends Auto {
 
@@ -188,7 +189,7 @@ public class SlipCalibrator extends Auto {
             }
 
 
-            double distance = Math.sqrt(Math.pow(getXPos()-blockStartingX,2) + Math.pow(getYPos()-blockStartingY,2));
+            double distance = 0; //Math.sqrt(Math.pow(/*getXPos()-blockStartingX,2) + Math.pow(getYPos()-blockStartingY,2*/, 0));
 
 
             if(currTimeMillis-stateStartTime > SLIP_TIME){
@@ -219,7 +220,7 @@ public class SlipCalibrator extends Auto {
                 initializeStateVariables();
             }
 
-            double distance = Math.sqrt(Math.pow(getXPos()-blockStartingX,2) + Math.pow(getYPos()-blockStartingY,2));
+            double distance = 0; //Math.sqrt(Math.pow(getXPos()-blockStartingX,2) + Math.pow(getYPos()-blockStartingY,2));
 
             if(currTimeMillis-stateStartTime > SLIP_TIME){
                 Speedometer.xSlipDistanceFor1CMPS = distance/movement_speed_x;
@@ -246,7 +247,7 @@ public class SlipCalibrator extends Auto {
                 initializeStateVariables();
             }
 
-            double radsTurned = AngleWrap(getAngle_rad()-blockStartingAngle_rad);
+            double radsTurned =0; //AngleWrap(getAngle_rad()-blockStartingAngle_rad);
             telemetry.addData("degreesTurned: ",Math.toDegrees(radsTurned));
             telemetry.addData("Turn speed deg:" ,Math.toDegrees(turn_speed));
             if(currTimeMillis-stateStartTime > SLIP_TIME){

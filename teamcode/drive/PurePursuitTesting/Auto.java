@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTestin
 
 import android.os.SystemClock;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
 import org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting.Robot;
 
 import java.util.ArrayList;
@@ -20,7 +22,9 @@ import static org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuit
 /**
  * Auto is used by autonomous opmodes
  */
-public class Auto extends Robot {
+public class Auto extends OpMode {
+
+
     public boolean stageFinished = true;
     public long stateStartTime = 0;
 
@@ -85,9 +89,9 @@ public class Auto extends Robot {
     }
 
     private void savePoint() {
-        markedXLocations.add(getXPos());
-        markedYLocations.add(getYPos());
-        markedAngleLocations.add(getAngle_deg());
+        //markedXLocations.add(getXPos());
+        //markedYLocations.add(getYPos());
+        //markedAngleLocations.add(getAngle_deg());
         markedStateIndexes.add(programStage);
     }
 
@@ -113,6 +117,11 @@ public class Auto extends Robot {
         startingPos_angle_rad = angle_rad;
     }
 
+    @Override
+    public void init() {
+        
+    }
+
     /**
      * Set's our position to the starting postition although this is dumb
      * because who even uses this anyway, we'll reset when we get down
@@ -127,6 +136,11 @@ public class Auto extends Robot {
         programStartTime = SystemClock.uptimeMillis();//record the start time of the program
     }
 
+    @Override
+    public void loop() {
+
+    }
+
     public void MainStateMachine() {
 
     }
@@ -137,9 +151,9 @@ public class Auto extends Robot {
      * @param milliseconds -> time
      * @return
      */
-    public boolean isTimedOut(int milliseconds){
-        return (currTimeMillis - stateStartTime > milliseconds && !debugging);
-    }
+    //public boolean isTimedOut(int milliseconds){
+        //return (currTimeMillis - stateStartTime > milliseconds && !debugging);
+    //}
 
 
 
