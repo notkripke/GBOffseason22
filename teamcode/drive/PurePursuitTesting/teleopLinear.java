@@ -51,6 +51,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name="teleopLinear", group="Linear Opmode")
+@Disabled
 public class teleopLinear extends GorillabotsCentral {
 
 

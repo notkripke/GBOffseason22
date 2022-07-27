@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.drive.PurePursuitTesting;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 
 
 @TeleOp(name="TestTeleopIterative", group="teleop")
+@Disabled
 public class TestTeleopIterative extends OpMode
 {
     public String program_stage = "start";

@@ -42,6 +42,7 @@ import java.util.ArrayList;
 
 
 @Autonomous(name="TestAutoIterative", group="auto")
+@Disabled
 public class TestAutoIterative extends OpMode
 {
     public String program_stage = "start";
