@@ -76,6 +76,7 @@ public class Drivetrain {
         worldXPosition = x;
         worldYPosition = y;
         worldAngle_rad = Math.toRadians(heading);
+        gyro_loop_index = 0;
     }
 
     double old_time = 0;
@@ -157,8 +158,13 @@ public class Drivetrain {
 
         gyro_loop_index += 1;
 
+        if(gyro_loop_index == 0){
+            imu.relativeHeading = worldAngle_rad;
+        }
+
         if(gyro_loop_index == gyro_loop_period){
             worldAngle_rad = imu.getHeading();
+            gyro_loop_index = 1;
         }
     }
     long lastUpdateTime;
