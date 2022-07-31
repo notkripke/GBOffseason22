@@ -67,6 +67,17 @@ public class Drivetrain {
     Vector2d mbl_location = new Vector2d(-0.1778, 0.1778);
     Vector2d mbr_location = new Vector2d(-0.1778, -0.1778);
 
+    /**
+     * @param x Robot X position in inches
+     * @param y Robot Y position in inches
+     * @param heading Robot heading in degrees
+     */
+    public void setPosition(double x, double y, double heading){
+        worldXPosition = x;
+        worldYPosition = y;
+        worldAngle_rad = Math.toRadians(heading);
+    }
+
     double old_time = 0;
     double new_time = 0;
     double oldMFL = 0;
@@ -86,12 +97,12 @@ public class Drivetrain {
     public static double relativeY;
     public static double relativeX;
     public static double worldAngleLast;
-
+    public static int gyro_loop_index = 0;
     /**
      *This will update the odometry positions using IMU and encoder data
      * @return no direct return, but will update worldX, worldY positions and worldAngle_rad
      */
-    public void updateOdo(){
+    public void updateOdo(int gyro_loop_period){
         new_time = SystemClock.uptimeMillis();
 
         double time = new_time - old_time;
@@ -132,10 +143,6 @@ public class Drivetrain {
             //get the radius of our straifing circle
             double radiusOfStraif = deltaX/angleIncrement;
 
-
-
-
-
             relativeY = (radiusOfMovement * Math.sin(resultant)) - (radiusOfStraif * (1 - Math.cos(resultant)));
 
             relativeX = radiusOfMovement * (1 - Math.cos(resultant)) + (radiusOfStraif * Math.sin(resultant));
@@ -145,6 +152,14 @@ public class Drivetrain {
                 relativeX);
         worldYPosition += (Math.sin(worldAngleLast) * relativeY) - (Math.cos(worldAngleLast) *
                 relativeX);
+        worldAngle_rad += deltaR;
+
+
+        gyro_loop_index += 1;
+
+        if(gyro_loop_index == gyro_loop_period){
+            worldAngle_rad = imu.getHeading();
+        }
     }
     long lastUpdateTime;
 

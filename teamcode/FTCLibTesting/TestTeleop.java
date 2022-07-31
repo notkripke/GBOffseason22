@@ -9,7 +9,8 @@ public class TestTeleop extends GorillabotsCentral {
     public void runOpMode() {
 
         initializeComponents();
-
+        drive.imu.init();
+        drive.setPosition(72, 72, 0);
 
         waitForStart();
 
@@ -22,7 +23,7 @@ public class TestTeleop extends GorillabotsCentral {
         drive.movement_turn = gamepad1.right_stick_x;
 
         drive.fieldCentricDrive();
-        drive.updateOdo();
+        drive.updateOdo(20);
 
         telemetry.addData("worldPositionX: ", drive.worldXPosition);
         telemetry.addData("worldPositionY: ", drive.worldYPosition);
