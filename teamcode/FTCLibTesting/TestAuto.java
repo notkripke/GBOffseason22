@@ -28,8 +28,6 @@ public class TestAuto extends GorillabotsCentral {
 
         waitForStart();
 
-        path.followPath(drive.d, drive.m_odometry);
-
         while (!isStopRequested()) {
 
         }

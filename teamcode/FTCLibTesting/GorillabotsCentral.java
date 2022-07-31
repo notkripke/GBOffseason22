@@ -1,9 +1,5 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.FTCLibTesting;
 
-import com.arcrobotics.ftclib.drivebase.MecanumDrive;
-import com.arcrobotics.ftclib.geometry.Rotation2d;
-import com.arcrobotics.ftclib.hardware.motors.Motor;
-import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 public class GorillabotsCentral extends LinearOpMode {
@@ -13,7 +9,8 @@ public class GorillabotsCentral extends LinearOpMode {
 
     public void initializeComponents(){
 
-    drive = new Drivetrain();
+    drive = new Drivetrain(hardwareMap, telemetry);
+    //drive.d.driveRobotCentric(drive.movement_x, drive.movement_y, drive.movement_turn); DRIVE.SETWEIGHTEDPOWERS();
     imu = new RevIMU(hardwareMap);
     imu.init();
     }
