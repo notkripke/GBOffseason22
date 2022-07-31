@@ -18,13 +18,11 @@ public class TestTeleop extends GorillabotsCentral {
             //                          CENTRIC IS DESIRED, CALL DRIVE.APPLYMOVEMENT() IN
             //                          PLACE OF DRIVE.FIELDCENTRICDRIVE()
 
-        drive.movement_x = gamepad1.left_stick_x;
-        drive.movement_y = gamepad1.left_stick_y;
-        drive.movement_turn = gamepad1.right_stick_x;
 
+        setDriveToController();
         drive.fieldCentricDrive();
         drive.updateOdo(20);
-
+        drive.ApplyMovement();
         telemetry.addData("worldPositionX: ", drive.worldXPosition);
         telemetry.addData("worldPositionY: ", drive.worldYPosition);
         telemetry.addData("worldPositionR: ", Math.toDegrees(drive.worldAngle_rad));

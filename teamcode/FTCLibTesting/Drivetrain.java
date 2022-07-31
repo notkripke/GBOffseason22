@@ -101,6 +101,7 @@ public class Drivetrain {
     public static int gyro_loop_index = 0;
     /**
      *This will update the odometry positions using IMU and encoder data
+     * @param gyro_loop_period Will determine after how many loops the gyro will be referenced to improve accuracy. A lower number means more accurate tracking but longer loop times
      * @return no direct return, but will update worldX, worldY positions and worldAngle_rad
      */
     public void updateOdo(int gyro_loop_period){
