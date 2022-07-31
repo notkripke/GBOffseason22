@@ -87,6 +87,10 @@ public class Drivetrain {
     public static double relativeX;
     public static double worldAngleLast;
 
+    /**
+     *This will update the odometry positions using IMU and encoder data
+     * @return no direct return, but will update worldX, worldY positions and worldAngle_rad
+     */
     public void updateOdo(){
         new_time = SystemClock.uptimeMillis();
 

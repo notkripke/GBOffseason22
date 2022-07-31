@@ -9,7 +9,7 @@ public class GorillabotsCentral extends LinearOpMode {
 
     public void initializeComponents(){
 
-    drive = new Drivetrain(hardwareMap, telemetry);
+    drive = new Drivetrain();
     //drive.d.driveRobotCentric(drive.movement_x, drive.movement_y, drive.movement_turn); DRIVE.SETWEIGHTEDPOWERS();
     imu = new RevIMU(hardwareMap);
     imu.init();

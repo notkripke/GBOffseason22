@@ -1,14 +1,12 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.FTCLibTesting;
 
-import com.arcrobotics.ftclib.geometry.Rotation2d;
-import com.arcrobotics.ftclib.hardware.GyroEx;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-public class RevIMU extends GyroEx {
+public class RevIMU{
 
     private BNO055IMU revIMU;
 
@@ -93,7 +91,6 @@ public class RevIMU extends GyroEx {
     /**
      * @return Absolute heading of the robot
      */
-    @Override
     public double getAbsoluteHeading() {
         return revIMU.getAngularOrientation().firstAngle * multiplier;
     }
@@ -108,25 +105,14 @@ public class RevIMU extends GyroEx {
         return new double[]{orientation.firstAngle, orientation.secondAngle, orientation.thirdAngle};
     }
 
-    /**
-     * @return Transforms heading into {@link Rotation2d}
-     */
-    @Override
-    public Rotation2d getRotation2d() {
-        return Rotation2d.fromDegrees(getHeading());
-    }
-
-    @Override
     public void disable() {
         revIMU.close();
     }
 
-    @Override
     public void reset() {
         offset += getHeading();
     }
 
-    @Override
     public String getDeviceType() {
         return "Rev Expansion Hub IMU";
     }
