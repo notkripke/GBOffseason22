@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Teamcode.teamcode.FTCLibTesting;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
@@ -12,6 +13,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+import java.lang.reflect.Array;
 
 public class Drivetrain {
 
@@ -138,6 +141,61 @@ public class Drivetrain {
                 relativeX);
         worldYPosition += (Math.sin(worldAngleLast) * relativeY) - (Math.cos(worldAngleLast) *
                 relativeX);
+    }
+    long lastUpdateTime;
+
+    public void ApplyMovement() {
+        long currTime = SystemClock.uptimeMillis();
+        if(currTime - lastUpdateTime < 16){
+            return;
+        }
+        lastUpdateTime = currTime;
+
+
+
+        double tl_power_raw = movement_y+movement_turn-movement_x*1.5;
+        double bl_power_raw = -movement_y+movement_turn+ movement_x*1.5;
+        double br_power_raw = movement_y+movement_turn+movement_x*1.5;
+        double tr_power_raw = -movement_y+movement_turn-movement_x*1.5;
+
+
+
+
+        //find the maximum of the powers
+        double maxRawPower = Math.abs(tl_power_raw);
+        if(Math.abs(bl_power_raw) > maxRawPower){ maxRawPower = Math.abs(bl_power_raw);}
+        if(Math.abs(br_power_raw) > maxRawPower){ maxRawPower = Math.abs(br_power_raw);}
+        if(Math.abs(tr_power_raw) > maxRawPower){ maxRawPower = Math.abs(tr_power_raw);}
+
+        //if the maximum is greater than 1, scale all the powers down to preserve the shape
+        double scaleDownAmount = 1.0;
+        if(maxRawPower > 1.0){
+            //when max power is multiplied by this ratio, it will be 1.0, and others less
+            scaleDownAmount = 1.0/maxRawPower;
+        }
+        tl_power_raw *= scaleDownAmount;
+        bl_power_raw *= scaleDownAmount;
+        br_power_raw *= scaleDownAmount;
+        tr_power_raw *= scaleDownAmount;
+
+
+        //now we can set the powers ONLY IF THEY HAVE CHANGED TO AVOID SPAMMING USB COMMUNICATIONS
+        mfl.setPower(tl_power_raw);
+        mbl.setPower(bl_power_raw);
+        mbr.setPower(br_power_raw);
+        mfr.setPower(tr_power_raw);
+    }
+
+    public void fieldCentricDrive(){
+// Create a vector from the gamepad x/y inputs
+// Then, rotate that vector by the inverse of that heading
+        Vector2d input = new Vector2d(
+                -movement_y,
+                -movement_x
+        ).rotated(-Math.toDegrees(worldAngle_rad));
+        movement_x = input.getX();
+        movement_y = input.getY();
+        ApplyMovement();
     }
 
 

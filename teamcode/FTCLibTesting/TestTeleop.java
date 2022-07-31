@@ -13,9 +13,21 @@ public class TestTeleop extends GorillabotsCentral {
 
         waitForStart();
 
-        while (!isStopRequested()) {
+        while (!isStopRequested()) { // THIS IS AN OPMODE FOR FIELD-CENTRIC DRIVE. IF ROBOT
+            //                          CENTRIC IS DESIRED, CALL DRIVE.APPLYMOVEMENT() IN
+            //                          PLACE OF DRIVE.FIELDCENTRICDRIVE()
 
+        drive.movement_x = gamepad1.left_stick_x;
+        drive.movement_y = gamepad1.left_stick_y;
+        drive.movement_turn = gamepad1.right_stick_x;
 
+        drive.fieldCentricDrive();
+        drive.updateOdo();
+
+        telemetry.addData("worldPositionX: ", drive.worldXPosition);
+        telemetry.addData("worldPositionY: ", drive.worldYPosition);
+        telemetry.addData("worldPositionR: ", Math.toDegrees(drive.worldAngle_rad));
+        telemetry.update();
         }
     }
 }
