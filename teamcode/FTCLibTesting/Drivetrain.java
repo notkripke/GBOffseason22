@@ -131,8 +131,8 @@ public class Drivetrain {
         double vR = (-mflV + mfrV - mblV + mbrV) * (wheel_radius / (4*(lx+ly)));
 
         double deltaX = (vX * time) - (xSlipDistanceFor1InPS * vX);
-        double deltaY = (vX * time) - (ySlipDistanceFor1InPS * vY);
-        double deltaR = (vX * time) - (turnSlipAmountFor1RPS * vR);
+        double deltaY = (vY * time) - (ySlipDistanceFor1InPS * vY);
+        double deltaR = (vR * time) - (turnSlipAmountFor1RPS * vR);
 
         double resultant = Math.atan2(deltaY, deltaX);
 
